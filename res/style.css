@@ -112,6 +112,14 @@ button {
     -webkit-animation: ninjawiggle .75s infinite;
 }
 
+.deskripsi {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%);
+    transform: translateX(-50%);
+}
+
 .skor {
     position: fixed;
     top: 50%;
