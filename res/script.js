@@ -3,6 +3,7 @@ let skorPlayer = 0;
 let timeOut = "";
 
 let ken = document.getElementById("ninja-ken");
+let teks = document.getElementById("teks");
 
 let splashScreen = document.getElementsByClassName("splash")[0];
 let startGame = document.getElementsByClassName("start")[0];
@@ -104,6 +105,7 @@ function result(who) {
             skorKen++;
             localStorage.setItem("skorKen", skorKen)        // menyimpan variabel ke web browser
             displaySkorKen.innerHTML = skorKen;
+            teks.innerHTML = "Ninja Ken menang!";
             console.log("Ninja Ken menang!");
             break;
 
@@ -111,10 +113,12 @@ function result(who) {
             skorPlayer++;
             localStorage.setItem("skorPlayer", skorPlayer)
             displaySkorPlayer.innerHTML = skorPlayer;
+            teks.innerHTML = "Anda menang!";
             console.log("Anda menang!");
             break;
 
         default:
+            teks.innerHTML = "Seri!"
             console.log("Seri");
             break;
     }
@@ -122,6 +126,7 @@ function result(who) {
     timeOut = setTimeout(() => {
         ken.style.removeProperty("background-image");
         ken.classList.add("goyang");
+        teks.innerHTML = ""
     }, 3000);
 }
 
@@ -132,6 +137,7 @@ reset.addEventListener("click", () => {
         skorPlayer = 0;
         displaySkorKen.innerHTML = skorKen;
         displaySkorPlayer.innerHTML = skorPlayer;
+        teks.innerHTML = ""
         localStorage.clear();       // menghapus variabel di web browser
     }
 });
